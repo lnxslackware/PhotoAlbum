@@ -9,6 +9,11 @@ class Photo extends \Eloquent
 		return $this->belongsTo('User');
 	}
 
+	public function album()
+	{
+		return $this->belongsTo('Album');
+	}
+
 	public function comments()
 	{
 		return $this->hasMany('Comment');
