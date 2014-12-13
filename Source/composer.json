@@ -1,0 +1,13 @@
+{
+    "name": "sixflags/photoalbum",
+    "description": "SoftUni PHP Teamwork Project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Team Six Flags",
+            "email": "nospam@nospam.com"
+        }
+    ],
+    "require": {
+    }
+}
