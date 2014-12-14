@@ -46,9 +46,12 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 |
 */
 
-App::error(function(Exception $exception, $code)
-{
-	Log::error($exception);
+//App::error(function(Exception $exception, $code)
+//{
+//	Log::error($exception);
+//});
+App::missing(function($exception){
+	return Response::make("Sorry, page not found! Please contact your administrator for further assistance.", 404);
 });
 
 /*
