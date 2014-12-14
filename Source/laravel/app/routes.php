@@ -42,16 +42,11 @@ Route::get('users', function(){
 		->with('users', $users);
 });
 
+Route::get('users/create', 'UsersController@showUsers');
+
 Route::get('users/{user}', function(User $user) {
 	return View::make('users.single')
 		->with('user', $user);
-});
-
-Route::get('users/create', function() {
-	$user = new User;
-	return View::make('users.edit')
-		->with('user', $user)
-		->with('method', 'post');
 });
 
 Route::get('users/{user}/edit', function(User $user) {

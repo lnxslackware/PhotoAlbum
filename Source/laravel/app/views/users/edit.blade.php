@@ -16,8 +16,16 @@
 	'users/'.$user->id))}}
 	@unless($method == 'delete')
 		<div class="form-group">
-			{{Form::label('Name')}}
-			{{Form::text('name')}}
+			{{Form::label('Nickname')}}
+			{{Form::text('nickname')}}
+		</div>
+		<div class="form-group">
+			{{Form::label('Full name')}}
+			{{Form::text('fullname')}}
+		</div>
+		<div class="form-group">
+			{{Form::label('Email Address')}}
+			{{Form::text('email')}}
 		</div>
 		<div class="form-group">
 			{{Form::label('Date of birth')}}

@@ -9,25 +9,12 @@ class UsersTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		$emails = [];
-		while(sizeof($emails) < 10)
+		foreach(range(1, 10) as $index)
 		{
-			$generatedEmail = $faker->email();
-			if (in_array($generatedEmail, $emails)) {
-				continue;
-			}
-
-			array_push($emails, $generatedEmail);
-
 			User::create([
-				'email' => $generatedEmail,
-				'password' => $faker->sha256()
+
 			]);
 		}
-
-		User::create([
-			'email' => 'admin@admin.com',
-			'password' => Hash::make('123456')
-			]);
 	}
+
 }

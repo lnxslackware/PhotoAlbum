@@ -10,8 +10,7 @@
 	<a href="{{url('users/'.$user->id.'/delete')}}">
 		<span class="glyphicon glyphicon-trash"></span> Delete
 	</a>
-	Last edited: {{$user->updated_at}}
 @stop
 @section('content')
-	<p>Date of Birth: {{$user->date_of_birth}} </p>
+	<p>Date of Birth: {{$user->name}} </p>
 @stop
