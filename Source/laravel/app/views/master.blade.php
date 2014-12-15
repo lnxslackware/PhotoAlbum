@@ -18,7 +18,10 @@
 			<ul class="nav nav-list">
 				@if(Auth::user())
 					<li class="nav-header">{{ ucwords(Auth::user()->username) }}</li>
-					<li>{{ HTML::link('post', 'Add post') }}</li>
+					<li>{{ HTML::link('post', 'Add new category') }}</li>
+					<li>{{ HTML::link('post', 'Add new album') }}</li>
+					<li>{{ HTML::link('post', 'Post a comment') }}</li>
+					<li>{{ HTML::link('post', 'Upload photos') }}</li>
 					<li>{{ HTML::link('users', 'View users') }}</li>
 					<li>{{ HTML::link('logout', 'Logout') }}</li>
 				@else
