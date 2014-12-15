@@ -2,20 +2,33 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Users DB</title>
-	<link rel="stylesheet" href="{{asset('bootstrap.min.css')}}">
+	<title>Photo Album&copy;</title>
+	{{HTML::script('js/jquery.js') }}
+	{{HTML::script('js/bootstrap.js') }}
+	{{HTML::style('css/bootstrap.css') }}
 </head>
 <body>
-	<div class="container">
-		<div class="page-header">
-			@yield('header')
+	<div class="row-fluid">
+		<div class="span12 well">
+			<h1>Awesome Photo Album</h1>
 		</div>
-		@if(Session::has('message'))
-			<div class="alert alert-success">
-				{{Session::get('message')}}
-			</div>
-		@endif
-		@yield('content')
+	</div>
+	<div class="row-fluid">
+		<div class="span3">
+			<ul class="nav nav-list">
+				@if(Auth::user())
+					<li class="nav-header">{{ ucwords(Auth::user()->username) }}</li>
+					<li>{{ HTML::link('post', 'Add post') }}</li>
+					<li>{{ HTML::link('users', 'View users') }}</li>
+					<li>{{ HTML::link('logout', 'Logout') }}</li>
+				@else
+					<li>{{ HTML::link('login', 'Login') }}</li>
+				@endif
+			</ul>
+		</div>
+		<div class="span9">
+			@yield('content')
+		</div>
 	</div>
 </body>
 </html>
