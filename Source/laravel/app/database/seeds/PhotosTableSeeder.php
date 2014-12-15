@@ -22,7 +22,7 @@ class PhotosTableSeeder extends Seeder {
 		{
 			Photo::create([
 				'title' => $faker->word(),
-				'img' => $imgNames[rand(0, sizeof($imgNames) -1)],
+				'img_name' => $imgNames[rand(0, sizeof($imgNames) -1)],
 				'author_id' => $usersId[rand(0, sizeof($usersId) - 1)],
 				'album_id' => $albumsId[rand(0, sizeof($albumsId) - 1)],
 				'category_id' => $categoriesId[rand(0, sizeof($categoriesId) - 1)]
