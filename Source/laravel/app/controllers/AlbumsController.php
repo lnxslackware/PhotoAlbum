@@ -22,4 +22,34 @@ class AlbumsController extends BaseController {
 		//Todo: fix redirect to some other page
 		return Redirect::to('home.index');
 	}
+
+    public function getEdit($id)
+    {
+        $album = Album::find($id);
+        if($album === null){
+            //throw error
+        }
+        if($album->owner_id !== Auth::user()->id){
+            //throw error
+        }
+        return View::make('albums.edit',array('album' => $album ));
+    }
+    public function putEdit($id)
+    {
+        $album = Album::find($id);
+        $putData = file_get_contents('php://input', 'r');
+        if($album === null){
+            //throw error
+        }
+        if($album->owner_id !== Auth::user()->id){
+            //throw error
+        }
+        $parsedData = [];
+        parse_str($putData, $parsedData);
+        $album->name = $parsedData['name'];
+        $album->save();
+
+        //TODO fix redirect
+        return Redirect::to('home.index');
+    }
 }

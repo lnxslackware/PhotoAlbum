@@ -29,6 +29,8 @@ Route::group(array('before' => 'auth'), function(){
     Route::get('admin', 'AdminController@getIndex');
     Route::get('albums/create', 'AlbumsController@getCreate');
     Route::post('albums/create', 'AlbumsController@postCreate');
+    Route::get('albums/{id}/edit', 'AlbumsController@getEdit');
+    Route::put('albums/{id}/edit', 'AlbumsController@putEdit');
 
 });
 
