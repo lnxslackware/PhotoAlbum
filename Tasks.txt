@@ -1,0 +1,25 @@
+Users controller
+	- Pofile page
+	- List registered users
+
+Albums controller*
+	- Create album for logged in user
+	- Edit album name
+	- Delete album with all photos
+	- Albums voting
+
+Photos controller*
+	- Upload photo to a given album
+	- Edit photos uploaded by the current user
+
+Comments controller*
+	- Add comment to a given photo
+	- Edit comment posted by the current user
+
+Administraion* - admins only
+	- Edit/Delete Users
+	- Edit/Delete Albums
+	- Edit/Delete Photos
+
+
+* - Requires Authorization
