@@ -4,7 +4,7 @@
 		<h3>Upload A New Pic</h3>
 	</div>
 	<div class="modal-body">
-		{{ Form::open(array('files' => true, 'id' => 'upload_modal_form', 'enctype' => 'multipart/form-data')) }}
+		{{ Form::open(array('files' => true, 'url' => '/upload', 'id' => 'upload_modal_form', 'enctype' => 'multipart/form-data')) }}
 		{{ Form::label('photo', 'Photo') }}
 		{{ Form::file('photo') }}
 		{{ Form::label('description', 'Description') }}

@@ -31,25 +31,30 @@ class PhotoController extends BaseController {
             return Redirect::to('profile')->with_errors($v);
         }
 
-        $extension = File::extension($input['photo']['name']);
-        $directory = path('public/uploads/');
+        //dd($input['photo']->guessExtension());
+        $extension = $input['photo']->guessExtension();
+        $directory = public_path() . '\uploads';
         $filename = sha1(Auth::user()->id . time()) . ".{$extension}";
 
-        $upload_success = Input::upload('photo', $directory, $filename);
+        //dd($directory);
+        //$upload_success = Input::upload('photo', $directory, $filename);
+        $upload_success = $input['photo']->move($directory, $filename);
+        //dd($upload_success);
 
         if($upload_success)
         {
-            $photo = new Photo(array(
-                'location'    => URL::to('uploads/' . sha1(Auth::user()->id) . '/' . $filename),
-                'description' => $input['description']
-            ));
-            Auth::user()->photos()->insert($photo);
+            //$photo = new Photo(array(
+            //    'location'    => URL::to('uploads/' . sha1(Auth::user()->id) . '/' . $filename),
+            //    'description' => $input['description']
+            //));
+            //Auth::user()->photos()->insert($photo);
             Session::flash('status_success', 'You have successfully uploaded your new pic!');
         } else
         {
             Session::flash('status_error', 'An error has occured while uploading your pic -- Please Try Again!');
         }
 
+        //todo fix redirect
         return Redirect::to('profile');
     }
 }
