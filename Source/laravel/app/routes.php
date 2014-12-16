@@ -26,6 +26,8 @@ Route::get('logout', 'HomeController@logout');
 Route::group(array('before' => 'auth'), function(){
 
     Route::get('admin', 'AdminController@getIndex');
+    Route::get('albums/create', 'AlbumsController@getCreate');
+    Route::post('albums/create', 'AlbumsController@postCreate');
 
 });
 
