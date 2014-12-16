@@ -20,12 +20,14 @@ class UsersTableSeeder extends Seeder {
 			array_push($emails, $generatedEmail);
 
 			User::create([
+				'username' => $faker->username(),
 				'email' => $generatedEmail,
 				'password' => $faker->sha256()
 			]);
 		}
 
 		User::create([
+				'username' => 'admin',
 				'email' => 'admin@admin.com',
 				'password' => Hash::make('123456')
 			]);
