@@ -33,5 +33,9 @@
 			@yield('content')
 		</div>
 	</div>
+	@section('form-modals')
+		@if (Auth::check())
+			@include('plugins.upload_modal')
+		@endif
 </body>
 </html>

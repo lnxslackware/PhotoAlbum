@@ -21,6 +21,7 @@ Route::get('login', 'HomeController@getLogin');
 Route::get('register', 'HomeController@getRegister');
 Route::post('register', 'HomeController@postRegister');
 Route::post('login', 'HomeController@postLogin');
+//Route::post('upload', 'PhotoController@post_upload');
 Route::get('logout', 'HomeController@logout');
 
 Route::group(array('before' => 'auth'), function(){
