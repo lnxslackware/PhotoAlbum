@@ -11,7 +11,7 @@
     				<h3>{{$album->name}}</h3>
     			</div>
     		</a>
-    		<p>Owner: {{$album->owner_name}}</p>
+    		<p>Owner: {{$album->owner->username}}</p>
     		<p>Created at: {{$album->created_at}}</p>
     		</div>
     	</div>

@@ -4,18 +4,9 @@ class AlbumsController extends BaseController
 {
     public function viewAllAlbums()
     {
-        $allAlbums = DB::table('albums')->get();
-        $albumsWithUsers = [];
-        foreach ($allAlbums as $album) {
-            $object = (object)array('name'=>$album->name,
-                'id'=> $album->id,
-                'created_at'=> $album->created_at,
-                'owner_id'=> $album->owner_id,
-                'owner_name'=>User::find($album->owner_id)->username);
-            $albumsWithUsers[] = $object;
-        }
+        $allAlbums = Album::with('owner')->get();
 
-        return View::make('albums.allAlbums', array('albums' => $albumsWithUsers));
+        return View::make('albums.allAlbums', array('albums' => $allAlbums));
     }
 
     public function viewOwnAlbums()
