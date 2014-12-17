@@ -4,11 +4,20 @@
 		<h3>Upload A New Pic</h3>
 	</div>
 	<div class="modal-body">
-		{{ Form::open(array('files' => true, 'url' => '/upload', 'id' => 'upload_modal_form', 'enctype' => 'multipart/form-data')) }}
+		{{ Form::open(array('files' => true, 'url' => '/upload', 'id' => 'upload_modal_form', 'enctype' => 'multipart/form-data')) }}		
+		{{ Form::label('title', 'Title') }}
+		{{ Form::text('title', '', array('placeholder' => 'Your photo title here!', 'id' => 'title', 'class' => 'span5')) }}
 		{{ Form::label('photo', 'Photo') }}
 		{{ Form::file('photo') }}
-		{{ Form::label('description', 'Description') }}
-		{{ Form::text('description', '', array('placeholder' => 'Describe your photo here!', 'id' => 'description', 'class' => 'span5')) }}
+		@section('')
+		{{ $albums = Album::where('owner_id', '=', Auth::user()->id)->get() }}
+		@endsection
+		{{ Form::label('album', 'Album') }}
+		<select name="album">
+		@foreach($albums as $album)
+			<option value="{{$album->id}}">{{$album->name}}</option>
+		@endforeach
+		</select>
 		{{ Form::close() }}
 	</div>
 	<div class="modal-footer">

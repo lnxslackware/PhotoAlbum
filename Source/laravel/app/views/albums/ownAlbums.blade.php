@@ -3,10 +3,10 @@
 @section('content')
 <div class="row">
 	@foreach($ownAlbums as $album)
-	<div class="col-xs-6 col-md-3">
+	<div class="span3">
 		<div class="thumbnail">
 		<a href="/albums/{{$album->id}}/viewPhotos">
-			<img data-src="" src="/img/album-default.png" width="100" alt="...">
+			<img src="/img/album-default.png" width="100" alt="{{$album->name}}">
 			<div class="caption">
 				<h3>{{$album->name}}</h3>
 			</div>

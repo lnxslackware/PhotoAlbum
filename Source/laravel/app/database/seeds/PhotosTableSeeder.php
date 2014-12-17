@@ -9,7 +9,6 @@ class PhotosTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 		$usersId = DB::table('users')->lists('id');
-		$categoriesId = DB::table('categories')->lists('id');
 		$albumsId = DB::table('albums')->lists('id');
 		$imgNames = [
 			'test.png',
@@ -24,8 +23,7 @@ class PhotosTableSeeder extends Seeder {
 				'title' => $faker->word(),
 				'img_name' => $imgNames[rand(0, sizeof($imgNames) -1)],
 				'author_id' => $usersId[rand(0, sizeof($usersId) - 1)],
-				'album_id' => $albumsId[rand(0, sizeof($albumsId) - 1)],
-				'category_id' => $categoriesId[rand(0, sizeof($categoriesId) - 1)]
+				'album_id' => $albumsId[rand(0, sizeof($albumsId) - 1)]
 			]);
 		}
 	}

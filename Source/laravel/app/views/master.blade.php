@@ -6,6 +6,7 @@
 	{{HTML::script('js/jquery.js') }}
 	{{HTML::script('js/bootstrap.js') }}
 	{{HTML::style('css/bootstrap.css') }}
+	{{HTML::style('css/photoalbum.css') }}
 </head>
 <body>
 	<div class="row-fluid">
@@ -14,7 +15,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-3">
+		<div class="span3">
 			<ul class="nav nav-list">
 				@if(Auth::user())
 					<li class="nav-header">{{ ucwords(Auth::user()->username) }}</li>
@@ -29,7 +30,7 @@
 				@endif
 			</ul>
 		</div>
-		<div class="col-md-9">
+		<div class="span9">
 			@yield('content')
 		</div>
 	</div>
