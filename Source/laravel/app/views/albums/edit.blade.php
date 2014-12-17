@@ -2,6 +2,7 @@
 
 
 @section('content')
+<div class="col-md-4"> 
     {{Form::open(array('url' => 'albums/'.$album->id.'/edit', 'method' => 'put', 'role' => 'form'))}}
     <div class="form-group">
         {{ Form::label('name', 'Album Name:', array('class'=>'control-label')) }}
@@ -9,4 +10,5 @@
     </div>
         {{ Form::submit('Edit album', array('class' => 'btn btn-primary')) }}
     {{Form::close()}}
+</div>
 @stop

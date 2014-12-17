@@ -1,6 +1,16 @@
 <?php
 
-class AlbumsController extends BaseController {
+class AlbumsController extends BaseController
+{
+
+    public function viewOwnAlbums()
+    {
+        $allAlbums = DB::table('albums');
+        $ownAlbums = $allAlbums->where('owner_id', '=', Auth::user()->id)->get();
+        //dd($ownAlbums);
+        return View::make('albums.ownAlbums', array('ownAlbums' => $ownAlbums));
+    }
+
 	public function getCreate()
 	{
 		return View::make('albums.create');
