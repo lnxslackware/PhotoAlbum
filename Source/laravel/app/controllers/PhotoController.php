@@ -65,7 +65,6 @@ class PhotoController extends BaseController {
             Session::flash('status_error', 'An error has occured while uploading your pic -- Please Try Again!');
         }
 
-        //todo fix redirect
-        return Redirect::to('profile');
+        return Redirect::to('/albums/'.$photo->album_id);
     }
 }

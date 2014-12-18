@@ -45,7 +45,7 @@ class HomeController extends BaseController {
 			if(Auth::attempt($credentials))
 			{
 
-				return Redirect::to('admin');
+				return Redirect::to('/');
 
 			} else {
 
