@@ -17,7 +17,7 @@
 		<h3>Comments:</h3>
 		<div>
 			<div>
-				{{ Form::open(array('url' => "/comments/$photo->id", 'method' => 'post')) }}
+				{{ Form::open(array('url' => "/comments/$photo->id/photo", 'method' => 'post')) }}
 				{{ Form::textarea('content', '', array('placeholder' => 'Comment...', 'class' => 'span5', 'rows' => "5")) }}
 			</div>
 			<p>
