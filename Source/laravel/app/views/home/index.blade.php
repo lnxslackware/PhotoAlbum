@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('content')
+<div class="span12"><h1>Home</h1></div>
 	<div class="span9 well">
 		<legend>Top 10 ranked albums:</legend>
 		<div class="row">

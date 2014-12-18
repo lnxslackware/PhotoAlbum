@@ -2,6 +2,7 @@
 
 
 @section('content')
+<div class="span12"><h1>Edit Album</h1></div>
 <div class="col-md-4"> 
     {{Form::open(array('url' => 'albums/'.$album->id.'/edit', 'method' => 'put', 'role' => 'form'))}}
     <div class="form-group">

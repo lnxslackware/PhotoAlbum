@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('content')
+<div class="span12"><h1>Register</h1></div>
 	<div class="row">
 		<div class="span4 offset1">
 			<div class="well">

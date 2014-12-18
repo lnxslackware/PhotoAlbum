@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('content')
+<div class="span12"><h1>Own Albums</h1></div>
 <div class="row">
 	@foreach($ownAlbums as $album)
 	<div class="span3">
