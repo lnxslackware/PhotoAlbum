@@ -17,7 +17,8 @@ class HomeController extends BaseController {
 
 	public function getIndex()
 	{
-		return View::make('home.index');
+        $topAlbums = Album::orderBy('rank', 'DESC')->take(10)->get();
+		return View::make('home.index', array('albums'=>$topAlbums));
 	}
 
 	public function getLogin()

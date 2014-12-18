@@ -21,6 +21,7 @@
 				@if(Auth::user())
 					<li class="nav-header">{{ ucwords(Auth::user()->username) }}</li>
 				@endif
+					<li>{{ HTML::link('/', 'Home') }}</li>
 					<li>{{ HTML::link('/albums', 'View all albums') }}</li>
 				@if(Auth::user())
 					<li>{{ HTML::link('/albums/own', 'View own albums') }}</li>

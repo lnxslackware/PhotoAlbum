@@ -14,7 +14,8 @@ class PhotoController extends BaseController {
     {
         $photo = Photo::find($id);
         if ($photo === null) {
-            //Error
+            $error = 'No such photo found.';
+            return View::make('errors.error', array('errorMsg' => $error));
         }
 
         $comments = Comment::where('photo_id', '=', $photo->id)->with('author')->get();

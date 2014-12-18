@@ -8,8 +8,8 @@ class AlbumsController extends BaseController
     {
         $album = Album::find($id);
         if ($album === null) {
-            //throw error
-            return "error";
+            $error = 'Invalid album.';
+            return View::make('errors.error', array('errorMsg' => $error));
         }
 
         if (Auth::user()) {
@@ -56,30 +56,34 @@ class AlbumsController extends BaseController
 		$album->owner_id = Auth::user()->id;
 		$album->save();
 
-		//Todo: fix redirect to some other page
-		return Redirect::to('home.index');
+		return Redirect::to('/albums/own');
 	}
 
     public function getEdit($id)
     {
         $album = Album::find($id);
         if($album === null){
-            //throw error
+            $error = 'Invalid album.';
+            return View::make('errors.error', array('errorMsg' => $error));
         }
         if($album->owner_id !== Auth::user()->id){
-            //throw error
+            $error = 'You don\'t have permission to edit this album.';
+            return View::make('errors.error', array('errorMsg' => $error));
         }
         return View::make('albums.edit',array('album' => $album ));
     }
+
     public function putEdit($id)
     {
         $album = Album::find($id);
         $putData = file_get_contents('php://input', 'r');
         if($album === null){
-            //throw error
+            $error = 'Invalid album.';
+            return View::make('errors.error', array('errorMsg' => $error));
         }
         if($album->owner_id !== Auth::user()->id){
-            //throw error
+            $error = 'You don\'t have permission to edit this album.';
+            return View::make('errors.error', array('errorMsg' => $error));
         }
         $parsedData = [];
         parse_str($putData, $parsedData);

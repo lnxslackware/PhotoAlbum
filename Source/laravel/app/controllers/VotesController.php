@@ -4,12 +4,14 @@ class VotesController extends BaseController {
 	{
 		$album = Album::find($id);
 		if ($album === null) {
-				//Error
+            $error = 'Can not vote. No such album found.';
+            return View::make('errors.error', array('errorMsg' => $error));
 		}
 
 		$input = Input::all();
 		if (1 > $input['vote'] || $input['vote'] > 10) {
-			//Error
+            $error = 'Invalid vote. Must be between 1 and 10.';
+            return View::make('errors.error', array('errorMsg' => $error));
 		}
 
 		$vote = new Vote([

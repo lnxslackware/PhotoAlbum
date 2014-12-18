@@ -4,7 +4,8 @@ class CommentsController extends BaseController {
 	{
 		$photo = Photo::find($id);
 		if ($photo === null) {
-			//Error
+            $error = 'Can not post comment. No such photo found.';
+            return View::make('errors.error', array('errorMsg' => $error));
 		}
 
 		$input = Input::all();
@@ -22,7 +23,8 @@ class CommentsController extends BaseController {
     {
         $album = Album::find($id);
         if ($album === null) {
-            //Error
+            $error = 'Can not post comment. No such album found.';
+            return View::make('errors.error', array('errorMsg' => $error));
         }
 
         $input = Input::all();
