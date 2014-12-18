@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('content')
+<div class="span12"><h1>Album Photos</h1></div>
     @if(!$isVoted)
     <div id="voting">
         <p>Vote for this album</p>
