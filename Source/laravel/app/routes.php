@@ -24,6 +24,7 @@ Route::post('login', 'HomeController@postLogin');
 Route::post('upload', 'PhotoController@post_upload');
 Route::get('logout', 'HomeController@logout');
 Route::get('albums', 'AlbumsController@viewAllAlbums');
+Route::get('/photo/{id}', 'PhotoController@viewDetails');
 
 Route::group(array('before' => 'auth'), function(){
 
@@ -33,6 +34,7 @@ Route::group(array('before' => 'auth'), function(){
     Route::get('albums/{id}/edit', 'AlbumsController@getEdit');
     Route::put('albums/{id}/edit', 'AlbumsController@putEdit');
     Route::get('albums/own', 'AlbumsController@viewOwnAlbums');
+    Route::get('albums/{id}', 'AlbumsController@viewPhotos');
 });
 
 //Route::get('/', function(){

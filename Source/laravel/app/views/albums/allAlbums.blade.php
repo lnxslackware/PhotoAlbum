@@ -5,8 +5,8 @@
     	@foreach($albums as $album)
     	<div class="span3">
     		<div class="thumbnail">
-    		<a href="/albums/{{$album->id}}/viewPhotos">
-    			<img data-src="" src="/img/album-default.png" width="100" alt="{{$album->name}}">
+    		<a href="/albums/{{$album->id}}">
+    			<img src="/img/album-default.png" alt="{{$album->name}}">
     			<div class="caption">
     				<h3>{{$album->name}}</h3>
     			</div>

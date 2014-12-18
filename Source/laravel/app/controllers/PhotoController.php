@@ -10,6 +10,16 @@ class PhotoController extends BaseController {
 
     public $restful = true;
 
+    public function viewDetails($id)
+    {
+        $photo = Photo::find($id);
+        if ($photo === null) {
+            //Error
+        }
+
+        return View::make('photo.details', array('photo' => $photo));
+    }
+
     public function post_upload()
     {
         $input = Input::all();

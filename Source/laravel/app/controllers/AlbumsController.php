@@ -2,6 +2,19 @@
 
 class AlbumsController extends BaseController
 {
+    public function viewPhotos($id)
+    {
+        $album = Album::find($id);
+        if ($album === null) {
+            //throw error
+            return "error";
+        }
+
+        //dd($album->photos()->get()[0]->img_name);
+
+        return View::make('albums.viewPhotos', array('photos' => $album->photos()->get()));
+    }
+
     public function viewAllAlbums()
     {
         $allAlbums = Album::with('owner')->get();
@@ -13,7 +26,6 @@ class AlbumsController extends BaseController
     {
         $allAlbums = DB::table('albums');
         $ownAlbums = $allAlbums->where('owner_id', '=', Auth::user()->id)->get();
-        //dd($ownAlbums);
         return View::make('albums.ownAlbums', array('ownAlbums' => $ownAlbums));
     }
 

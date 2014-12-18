@@ -2,7 +2,7 @@
 
 class Photo extends \Eloquent 
 {
-	protected $fillable = array('title', 'img_name', 'autho_id', 'album_id');
+	protected $fillable = array('title', 'img_name', 'author_id', 'album_id');
 
 	public function author() 
 	{
