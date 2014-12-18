@@ -38,7 +38,7 @@
 					</span>
 				</div>
 			</div>
-		</div>
 		@endforeach
+		</div>
 	</div>
 @stop
