@@ -3,7 +3,12 @@
 @section('content')
     <div id="voting">
         <p>Vote for this album</p>
-        <a href=""><i class="icon-thumbs-up icon-white"></i></a>
+        {{ Form::open(array('url' => "/votes/$photos[0]->album_id", 'method' => 'post')) }}
+        <p>
+        {{ Form::selectRange('vote', 1, 10) }}
+        </p>
+        <input type="submit" class="btn btn-mini" name="submit" value="Vote!">
+        {{ Form::close() }}
     </div>
     <div class="row">
     	@foreach($photos as $photo)
