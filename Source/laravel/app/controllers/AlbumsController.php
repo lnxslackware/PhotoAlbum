@@ -77,18 +77,24 @@ class AlbumsController extends BaseController
     {
         $album = Album::find($id);
         $putData = file_get_contents('php://input', 'r');
-        if($album === null){
+        if($album === null) {
             $error = 'Invalid album.';
             return View::make('errors.error', array('errorMsg' => $error));
         }
 
-        if($album->owner_id !== Auth::user()->id){
+        if($album->owner_id !== Auth::user()->id) {
             $error = 'You don\'t have permission to edit this album.';
             return View::make('errors.error', array('errorMsg' => $error));
         }
 
         $parsedData = [];
         parse_str($putData, $parsedData);
+        
+        if(strlen($parsedData['name']) === 0) {
+            $error = 'Cannot rename album to empty string!';
+            return View::make('errors.error', array('errorMsg' => $error));
+        }
+
         $album->name = $parsedData['name'];
         $album->save();
 

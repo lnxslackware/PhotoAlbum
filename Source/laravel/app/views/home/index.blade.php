@@ -3,7 +3,8 @@
 @section('content')
 <div class="span12"><h1>Home</h1></div>
 	<div class="span9 well">
-		<legend>Top 10 ranked albums:</legend>
+		<h3>Top 10 ranked albums:</h3>
+        <hr />
 		<div class="row">
             @foreach($albums as $album)
             <div class="span3">

@@ -24,7 +24,7 @@
 					<li>{{ HTML::link('/', 'Home') }}</li>
 					<li>{{ HTML::link('/albums', 'View all albums') }}</li>
 				@if(Auth::user())
-					<li>{{ HTML::link('/albums/own', 'View own albums') }}</li>
+					<li>{{ HTML::link('/albums/own', 'View your albums') }}</li>
 					<li>{{ HTML::link('/albums/create', 'Create a album') }}</li>
 					<li>{{ HTML::link('', 'Upload photos', array('onclick' => 'showModal(); return false')) }}</li>
 					<li>{{ HTML::link('logout', 'Logout') }}</li>
