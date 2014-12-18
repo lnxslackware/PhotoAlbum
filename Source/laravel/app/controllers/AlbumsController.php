@@ -2,6 +2,8 @@
 
 class AlbumsController extends BaseController
 {
+
+
     public function viewPhotos($id)
     {
         $album = Album::find($id);
@@ -10,9 +12,10 @@ class AlbumsController extends BaseController
             return "error";
         }
 
+        $comments = Comment::where('album_id', '=', $album->id)->with('author')->get();
         //dd($album->photos()->get()[0]->img_name);
 
-        return View::make('albums.viewPhotos', array('photos' => $album->photos()->get()));
+        return View::make('albums.viewPhotos', array('photos' => $album->photos()->get(), 'comments' => $comments, 'albumId' => $album->id));
     }
 
     public function viewAllAlbums()
