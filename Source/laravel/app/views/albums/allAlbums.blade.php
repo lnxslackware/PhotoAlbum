@@ -11,8 +11,11 @@
     				<h3>{{$album->name}}</h3>
     			</div>
     		</a>
-    		<p>Owner: {{$album->owner->username}}</p>
-    		<p>Created at: {{$album->created_at}}</p>
+            <p>
+                <strong>Rank: </strong>{{$album->rank}}<br />
+                <strong>Owner: </strong>{{$album->owner->username}}<br />
+                <strong>Created at: </strong>{{$album->created_at}}
+            </p>
     		</div>
     	</div>
     	@endforeach

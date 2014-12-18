@@ -9,6 +9,7 @@
 			<img src="/img/album-default.png" alt="{{$album->name}}">
 			<div class="caption">
 				<h3>{{$album->name}}</h3>
+				<strong>Rank: </strong>{{$album->rank}}
 			</div>
 		</a>
 				<p>

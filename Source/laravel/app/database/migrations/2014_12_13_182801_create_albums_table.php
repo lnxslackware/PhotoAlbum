@@ -17,6 +17,7 @@ class CreateAlbumsTable extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->integer('owner_id');
+			$table->integer('rank')->default(0);
 			$table->timestamps();
 		});
 	}

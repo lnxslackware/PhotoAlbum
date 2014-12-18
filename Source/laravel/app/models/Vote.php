@@ -1,7 +1,7 @@
 <?php
 
 class Vote extends \Eloquent {
-	protected $fillable = [];
+	protected $fillable = array('value', 'album_id', 'voter_id');
 
 	public function album()
 	{

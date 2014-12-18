@@ -12,10 +12,13 @@ class AlbumsController extends BaseController
             return "error";
         }
 
+        $isVoted = sizeof(Vote::where('album_id', '=', $album->id)->where('voter_id', '=', Auth::user()->id)->get()) !== 0;
+
         $comments = Comment::where('album_id', '=', $album->id)->with('author')->get();
         //dd($album->photos()->get()[0]->img_name);
 
-        return View::make('albums.viewPhotos', array('photos' => $album->photos()->get(), 'comments' => $comments, 'albumId' => $album->id));
+        return View::make('albums.viewPhotos', array('photos' => $album->photos()->get(),
+         'comments' => $comments, 'albumId' => $album->id, 'isVoted' => $isVoted));
     }
 
     public function viewAllAlbums()

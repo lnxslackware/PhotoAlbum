@@ -37,6 +37,7 @@ Route::group(array('before' => 'auth'), function(){
     Route::get('albums/{id}', 'AlbumsController@viewPhotos');
     Route::post('comments/{id}/photo', 'CommentsController@postPhotoComment');
     Route::post('comments/{id}/album', 'CommentsController@postAlbumComment');
+    Route::post('votes/{id}', 'VotesController@vote');
 });
 
 //Route::get('/', function(){

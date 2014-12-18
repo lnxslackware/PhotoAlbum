@@ -1,15 +1,17 @@
 @extends('master')
 
 @section('content')
+    @if(!$isVoted)
     <div id="voting">
         <p>Vote for this album</p>
-        {{ Form::open(array('url' => "/votes/$photos[0]->album_id", 'method' => 'post')) }}
+        {{ Form::open(array('url' => "/votes/$albumId", 'method' => 'post')) }}
         <p>
         {{ Form::selectRange('vote', 1, 10) }}
         </p>
         <input type="submit" class="btn btn-mini" name="submit" value="Vote!">
         {{ Form::close() }}
     </div>
+    @endif
     <div class="row">
     	@foreach($photos as $photo)
     	<div class="span3">
