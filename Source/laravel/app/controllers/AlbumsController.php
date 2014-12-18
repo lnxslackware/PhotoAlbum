@@ -81,15 +81,37 @@ class AlbumsController extends BaseController
             $error = 'Invalid album.';
             return View::make('errors.error', array('errorMsg' => $error));
         }
+
         if($album->owner_id !== Auth::user()->id){
             $error = 'You don\'t have permission to edit this album.';
             return View::make('errors.error', array('errorMsg' => $error));
         }
+
         $parsedData = [];
         parse_str($putData, $parsedData);
         $album->name = $parsedData['name'];
         $album->save();
 
+        return Redirect::to('/albums/own');
+    }
+
+    public function delete($id)
+    {
+        $album = Album::find($id);
+        if($album === null){
+            $error = 'Invalid album.';
+            return View::make('errors.error', array('errorMsg' => $error));
+        }
+
+        if($album->owner_id !== Auth::user()->id){
+            $error = 'You don\'t have permission to delete this album. You are not it\'s owner.';
+            return View::make('errors.error', array('errorMsg' => $error));
+        }
+
+        //delete all photos
+        Photo::where('album_id', '=', $album->id)->delete();
+        //delete album
+        $album->delete();
         return Redirect::to('/albums/own');
     }
 }

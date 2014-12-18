@@ -28,6 +28,7 @@ Route::group(array('before' => 'auth'), function(){
     Route::post('albums/create', 'AlbumsController@postCreate');
     Route::get('albums/{id}/edit', 'AlbumsController@getEdit');
     Route::put('albums/{id}/edit', 'AlbumsController@putEdit');
+    Route::get('albums/{id}/delete', 'AlbumsController@delete');
     Route::get('albums/own', 'AlbumsController@viewOwnAlbums');
     Route::post('comments/{id}/photo', 'CommentsController@postPhotoComment');
     Route::post('comments/{id}/album', 'CommentsController@postAlbumComment');
