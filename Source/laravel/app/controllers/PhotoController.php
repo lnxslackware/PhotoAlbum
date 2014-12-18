@@ -17,7 +17,9 @@ class PhotoController extends BaseController {
             //Error
         }
 
-        return View::make('photo.details', array('photo' => $photo));
+        $comments = Comment::where('photo_id', '=', $photo->id)->with('author')->get();
+
+        return View::make('photo.details', array('photo' => $photo, 'comments' => $comments));
     }
 
     public function post_upload()

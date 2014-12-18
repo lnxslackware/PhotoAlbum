@@ -30,6 +30,21 @@ div.thumbnail img {
 	border: 2px solid lightgray;
 }
 
-#voting {
+#voting, #comment-section {
 	text-align: center;
+}
+
+.comment-content {
+	padding: 10px;
+	border: 1px solid lightgray;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.author {
+	padding: 5px;
+	border: 1px solid lightgray;
+	margin-bottom: 20px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }

@@ -35,6 +35,7 @@ Route::group(array('before' => 'auth'), function(){
     Route::put('albums/{id}/edit', 'AlbumsController@putEdit');
     Route::get('albums/own', 'AlbumsController@viewOwnAlbums');
     Route::get('albums/{id}', 'AlbumsController@viewPhotos');
+    Route::post('comments/{id}', 'CommentsController@postComment');
 });
 
 //Route::get('/', function(){
