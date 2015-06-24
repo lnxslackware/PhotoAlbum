@@ -8,17 +8,17 @@ Design and implement a Photo Album using PHP and HTML / CSS / JavaScript. Your p
 
 **Requirements:**
 
-  - Use PHP â€“ the major part of your work should be PHP written by your team
+  - Use PHP – the major part of your work should be PHP written by your team
     	o	You must additionally use HTML5, CSS3 to create the content and to stylize your web application
     	o	You may optionally use JavaScript, jQuery
     	o	You may optionally use PHP frameworks to simplify your work
     	o	User PHP 5
 
-  - Work in team â€“ all team members should contribute
+  - Work in team – all team members should contribute
     	o	Use GitHub or other source control system as project collaboration platform
     	o	Each team member should have commits in 5 different days
 
-  - Publish your project live in Internet â€“ your project should be public in Internet
+  - Publish your project live in Internet – your project should be public in Internet
     	o	You may share your project to get external feedback
     	o	Most shared and commented projects will get additional bonus score
 
